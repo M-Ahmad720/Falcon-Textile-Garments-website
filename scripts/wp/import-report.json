@@ -1,0 +1,31 @@
+{
+  "csvPath": "scripts/wp/wc-product-export.csv",
+  "totalCsvRows": 88,
+  "totalProductsImported": 88,
+  "totalCategories": 31,
+  "totalParentCategories": 10,
+  "totalSubcategories": 21,
+  "totalImageReferences": 177,
+  "totalUniqueImages": 173,
+  "duplicateImagesRemoved": 4,
+  "brokenImages": [],
+  "brokenImageCount": 0,
+  "productsMissingImages": [],
+  "productsMissingDescriptions": [],
+  "productsMissingShortDescriptions": [],
+  "productsMissingCategories": [],
+  "dataInconsistencies": [
+    {
+      "product": "PowerGuard Arc-Rated Coveralls.",
+      "issue": "Description appears to reference another product: \"Defender Tactical Coveralls\"",
+      "type": "name-mismatch"
+    }
+  ],
+  "issues": [
+    {
+      "product": "PowerGuard Arc-Rated Coveralls.",
+      "issue": "Description appears to reference another product: \"Defender Tactical Coveralls\"",
+      "type": "name-mismatch"
+    }
+  ]
+}

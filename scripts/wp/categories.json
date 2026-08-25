@@ -1,0 +1,247 @@
+[
+  {
+    "id": 103,
+    "slug": "bibs-and-braces",
+    "name": "Bibs and Braces",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 126,
+    "slug": "chemical-industrial-protection",
+    "name": "Chemical &amp; Industrial Protection",
+    "count": 8,
+    "description": ""
+  },
+  {
+    "id": 127,
+    "slug": "chemical-suits",
+    "name": "Chemical Suits",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 106,
+    "slug": "chemical-resistant-parachute-trousers-cargo-pants",
+    "name": "Chemical-Resistant Parachute Trousers &amp; Cargo Pants",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 132,
+    "slug": "chief-coats-cotton-pieces",
+    "name": "Chief Coats (Cotton Pieces)",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 124,
+    "slug": "corporate-uniforms",
+    "name": "Corporate &amp; Uniforms",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 125,
+    "slug": "corporate-contract-clothing",
+    "name": "Corporate Contract Clothing",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 101,
+    "slug": "coveralls",
+    "name": "Coveralls",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 15,
+    "slug": "coveralls-overalls-suits",
+    "name": "Coveralls &amp; Overalls Suits",
+    "count": 16,
+    "description": ""
+  },
+  {
+    "id": 114,
+    "slug": "flame-retardant-with-nomex",
+    "name": "Flame Retardant with Nomex®",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 115,
+    "slug": "flame-retardant-with-nomex-by-carpenter-dupont",
+    "name": "Flame Retardant with Nomex® by Carpenter &amp; DuPont™",
+    "count": 0,
+    "description": ""
+  },
+  {
+    "id": 111,
+    "slug": "flame-resistant-fr-clothing",
+    "name": "Flame-Resistant (FR) Clothing",
+    "count": 16,
+    "description": ""
+  },
+  {
+    "id": 117,
+    "slug": "flame-resistant-nomex-clothing",
+    "name": "Flame-Resistant (Nomex®) Clothing",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 112,
+    "slug": "flame-resistant-clothing",
+    "name": "Flame-Resistant Clothing",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 116,
+    "slug": "flame-retardant-fr-clothing",
+    "name": "Flame-Retardant (FR) Clothing",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 113,
+    "slug": "fr-antistatic-flame-resistant-clothing",
+    "name": "FR + Antistatic Flame-Resistant Clothing",
+    "count": 0,
+    "description": ""
+  },
+  {
+    "id": 121,
+    "slug": "heavy-duty-denim-canvas-clothing",
+    "name": "Heavy-Duty Denim/Canvas Clothing",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 120,
+    "slug": "heavy-duty-workwear",
+    "name": "Heavy-Duty Workwear",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 119,
+    "slug": "hi-visibility-clothing",
+    "name": "Hi-Visibility Clothing",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 118,
+    "slug": "high-visibility-safety-workwear",
+    "name": "High-Visibility &amp; Safety Workwear",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 130,
+    "slug": "industrial-shirts",
+    "name": "Industrial Shirts",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 107,
+    "slug": "jackets-outerwear",
+    "name": "Jackets &amp; Outerwear",
+    "count": 12,
+    "description": ""
+  },
+  {
+    "id": 131,
+    "slug": "lab-coats-parachute-cotton",
+    "name": "Lab Coats (Parachute Cotton)",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 102,
+    "slug": "nomex-coveralls",
+    "name": "Nomex Coveralls",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 128,
+    "slug": "parachute-hood",
+    "name": "Parachute Hood",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 110,
+    "slug": "parachute-vest",
+    "name": "Parachute Vest",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 108,
+    "slug": "safety-jackets",
+    "name": "Safety Jackets",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 129,
+    "slug": "shirts-labwear",
+    "name": "Shirts &amp; Labwear",
+    "count": 12,
+    "description": ""
+  },
+  {
+    "id": 134,
+    "slug": "specialized-clothing",
+    "name": "SPECIALIZED CLOTHING",
+    "count": 0,
+    "description": ""
+  },
+  {
+    "id": 133,
+    "slug": "specialized-gear",
+    "name": "Specialized Gear",
+    "count": 0,
+    "description": ""
+  },
+  {
+    "id": 105,
+    "slug": "trousers-cargo-trousers",
+    "name": "Trousers &amp; Cargo Trousers",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 104,
+    "slug": "trousers-pants",
+    "name": "Trousers &amp; Pants",
+    "count": 8,
+    "description": ""
+  },
+  {
+    "id": 122,
+    "slug": "winter-seasonal-clothing",
+    "name": "Winter &amp; Seasonal Clothing",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 123,
+    "slug": "winter-clothing",
+    "name": "Winter Clothing",
+    "count": 4,
+    "description": ""
+  },
+  {
+    "id": 109,
+    "slug": "wool-jackets",
+    "name": "Wool Jackets",
+    "count": 4,
+    "description": ""
+  }
+]

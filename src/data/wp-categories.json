@@ -1,0 +1,262 @@
+[
+  {
+    "slug": "bibs-and-braces",
+    "aliases": [],
+    "name": "Bibs and Braces",
+    "parentSlug": "coveralls-overalls-suits",
+    "parentName": "Coveralls & Overalls Suits",
+    "count": 4
+  },
+  {
+    "slug": "chemical-industrial-protection",
+    "aliases": [],
+    "name": "Chemical & Industrial Protection",
+    "parentSlug": null,
+    "parentName": null,
+    "count": 8
+  },
+  {
+    "slug": "chemical-suits",
+    "aliases": [],
+    "name": "Chemical Suits",
+    "parentSlug": "chemical-industrial-protection",
+    "parentName": "Chemical & Industrial Protection",
+    "count": 4
+  },
+  {
+    "slug": "chemical-resistant-parachute-trousers-cargo-pants",
+    "aliases": [],
+    "name": "Chemical-Resistant Parachute Trousers & Cargo Pants",
+    "parentSlug": "trousers-pants",
+    "parentName": "Trousers & Pants",
+    "count": 4
+  },
+  {
+    "slug": "chief-coats-cotton-pieces",
+    "aliases": [
+      "chief-coats"
+    ],
+    "name": "Chief Coats (Cotton Pieces)",
+    "parentSlug": "shirts-labwear",
+    "parentName": "Shirts & Labwear",
+    "count": 8
+  },
+  {
+    "slug": "corporate-uniforms",
+    "aliases": [],
+    "name": "Corporate & Uniforms",
+    "parentSlug": null,
+    "parentName": null,
+    "count": 4
+  },
+  {
+    "slug": "corporate-contract-clothing",
+    "aliases": [],
+    "name": "Corporate Contract Clothing",
+    "parentSlug": "corporate-uniforms",
+    "parentName": "Corporate & Uniforms",
+    "count": 4
+  },
+  {
+    "slug": "coveralls",
+    "aliases": [],
+    "name": "Coveralls",
+    "parentSlug": "coveralls-overalls-suits",
+    "parentName": "Coveralls & Overalls Suits",
+    "count": 4
+  },
+  {
+    "slug": "coveralls-overalls-suits",
+    "aliases": [
+      "coveralls-overalls"
+    ],
+    "name": "Coveralls & Overalls Suits",
+    "parentSlug": null,
+    "parentName": null,
+    "count": 32
+  },
+  {
+    "slug": "flame-retardant-with-nomex",
+    "aliases": [],
+    "name": "Flame Retardant with Nomex®",
+    "parentSlug": "flame-resistant-fr-clothing",
+    "parentName": "Flame-Resistant (FR) Clothing",
+    "count": 4
+  },
+  {
+    "slug": "flame-resistant-fr-clothing",
+    "aliases": [
+      "flame-resistant-clothing"
+    ],
+    "name": "Flame-Resistant (FR) Clothing",
+    "parentSlug": null,
+    "parentName": null,
+    "count": 32
+  },
+  {
+    "slug": "flame-resistant-nomex-clothing",
+    "aliases": [],
+    "name": "Flame-Resistant (Nomex®) Clothing",
+    "parentSlug": "flame-resistant-fr-clothing",
+    "parentName": "Flame-Resistant (FR) Clothing",
+    "count": 4
+  },
+  {
+    "slug": "flame-resistant-clothing",
+    "aliases": [],
+    "name": "Flame-Resistant Clothing",
+    "parentSlug": "flame-resistant-fr-clothing",
+    "parentName": "Flame-Resistant (FR) Clothing",
+    "count": 0
+  },
+  {
+    "slug": "flame-retardant-fr-clothing",
+    "aliases": [],
+    "name": "Flame-Retardant (FR) Clothing",
+    "parentSlug": "flame-resistant-fr-clothing",
+    "parentName": "Flame-Resistant (FR) Clothing",
+    "count": 4
+  },
+  {
+    "slug": "heavy-duty-denim-canvas-clothing",
+    "aliases": [
+      "heavy-duty-denimcanvas-clothing"
+    ],
+    "name": "Heavy-Duty Denim/Canvas Clothing",
+    "parentSlug": "heavy-duty-workwear",
+    "parentName": "Heavy-Duty Workwear",
+    "count": 8
+  },
+  {
+    "slug": "heavy-duty-workwear",
+    "aliases": [],
+    "name": "Heavy-Duty Workwear",
+    "parentSlug": null,
+    "parentName": null,
+    "count": 4
+  },
+  {
+    "slug": "hi-visibility-clothing",
+    "aliases": [],
+    "name": "Hi-Visibility Clothing",
+    "parentSlug": "high-visibility-safety-workwear",
+    "parentName": "High-Visibility & Safety Workwear",
+    "count": 0
+  },
+  {
+    "slug": "high-visibility-safety-workwear",
+    "aliases": [
+      "hi-visibility-clothing"
+    ],
+    "name": "High-Visibility & Safety Workwear",
+    "parentSlug": null,
+    "parentName": null,
+    "count": 8
+  },
+  {
+    "slug": "industrial-shirts",
+    "aliases": [],
+    "name": "Industrial Shirts",
+    "parentSlug": "shirts-labwear",
+    "parentName": "Shirts & Labwear",
+    "count": 4
+  },
+  {
+    "slug": "jackets-outerwear",
+    "aliases": [],
+    "name": "Jackets & Outerwear",
+    "parentSlug": null,
+    "parentName": null,
+    "count": 12
+  },
+  {
+    "slug": "lab-coats-parachute-cotton",
+    "aliases": [
+      "lab-coats"
+    ],
+    "name": "Lab Coats (Parachute Cotton)",
+    "parentSlug": "shirts-labwear",
+    "parentName": "Shirts & Labwear",
+    "count": 8
+  },
+  {
+    "slug": "nomex-coveralls",
+    "aliases": [],
+    "name": "Nomex Coveralls",
+    "parentSlug": "coveralls-overalls-suits",
+    "parentName": "Coveralls & Overalls Suits",
+    "count": 4
+  },
+  {
+    "slug": "parachute-hood",
+    "aliases": [],
+    "name": "Parachute Hood",
+    "parentSlug": "chemical-industrial-protection",
+    "parentName": "Chemical & Industrial Protection",
+    "count": 4
+  },
+  {
+    "slug": "parachute-vest",
+    "aliases": [],
+    "name": "Parachute Vest",
+    "parentSlug": "jackets-outerwear",
+    "parentName": "Jackets & Outerwear",
+    "count": 4
+  },
+  {
+    "slug": "safety-jackets",
+    "aliases": [],
+    "name": "Safety Jackets",
+    "parentSlug": "jackets-outerwear",
+    "parentName": "Jackets & Outerwear",
+    "count": 4
+  },
+  {
+    "slug": "shirts-labwear",
+    "aliases": [],
+    "name": "Shirts & Labwear",
+    "parentSlug": null,
+    "parentName": null,
+    "count": 12
+  },
+  {
+    "slug": "trousers-cargo-trousers",
+    "aliases": [],
+    "name": "Trousers & Cargo Trousers",
+    "parentSlug": "trousers-pants",
+    "parentName": "Trousers & Pants",
+    "count": 4
+  },
+  {
+    "slug": "trousers-pants",
+    "aliases": [],
+    "name": "Trousers & Pants",
+    "parentSlug": null,
+    "parentName": null,
+    "count": 8
+  },
+  {
+    "slug": "winter-seasonal-clothing",
+    "aliases": [],
+    "name": "Winter & Seasonal Clothing",
+    "parentSlug": null,
+    "parentName": null,
+    "count": 4
+  },
+  {
+    "slug": "winter-clothing",
+    "aliases": [],
+    "name": "Winter Clothing",
+    "parentSlug": "winter-seasonal-clothing",
+    "parentName": "Winter & Seasonal Clothing",
+    "count": 4
+  },
+  {
+    "slug": "wool-jackets",
+    "aliases": [],
+    "name": "Wool Jackets",
+    "parentSlug": "jackets-outerwear",
+    "parentName": "Jackets & Outerwear",
+    "count": 4
+  }
+]
