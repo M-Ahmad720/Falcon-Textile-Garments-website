@@ -4,9 +4,14 @@ export const siteConfig = {
   name: "Falcon Textile & Garments",
   tagline: "Industrial Workwear Solutions",
   description:
-    "Premium industrial workwear engineered for demanding environments, global industries and professional teams.",
+    "Industrial workwear manufacturer supplying custom safety uniforms, flame-resistant clothing, hi-vis garments, coveralls, jackets and trousers worldwide.",
   url: "https://falcontextilegarments.com",
   phone: "+92 307 9431923",
+  phoneUS: "+1(213)597-2772",
+  phones: [
+    { label: "+92 307 9431923", href: "tel:+923079431923" },
+    { label: "+1(213)597-2772", href: "tel:+12135972772" },
+  ],
   email: "info@falcontextilegarments.com",
   inquiryEmail: "falcontextilegarments@gmail.com",
   address:

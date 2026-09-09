@@ -59,21 +59,35 @@ export default function AboutTestimonials() {
   useEffect(() => {
     if (!ref.current || reducedMotion) return;
 
+    const cards = ref.current.querySelectorAll(".about-testimonial-card");
     const ctx = gsap.context(() => {
-      gsap.from(".about-testimonial-card", {
-        y: 70,
-        opacity: 0,
-        duration: 0.85,
-        stagger: 0.16,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ref.current,
-          start: "top 78%",
-        },
-      });
+      gsap.fromTo(
+        cards,
+        { y: 70, autoAlpha: 0 },
+        {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.85,
+          stagger: 0.16,
+          ease: "power3.out",
+          immediateRender: false,
+          clearProps: "transform",
+          scrollTrigger: {
+            trigger: ref.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+            once: true,
+          },
+        }
+      );
     }, ref);
 
-    return () => ctx.revert();
+    const refreshId = requestAnimationFrame(() => ScrollTrigger.refresh());
+    return () => {
+      cancelAnimationFrame(refreshId);
+      ctx.revert();
+      gsap.set(cards, { clearProps: "all" });
+    };
   }, [reducedMotion]);
 
   return (

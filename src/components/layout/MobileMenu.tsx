@@ -137,12 +137,15 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           >
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor"><path d="M6.5 9H3v12h3.5V9zM4.8 3C3.5 3 2.5 4 2.5 5.3S3.5 7.5 4.8 7.5 7 6.5 7 5.3 6 3 4.8 3zM21 13.5c0-2.8-1.5-4.6-4.4-4.6-2 0-2.9 1.1-3.4 1.9V9H9.8c0 1.3 0 12 0 12H13.3v-6.7c0-.4 0-.7.1-1 .3-.7.9-1.5 2-1.5 1.4 0 2 1.1 2 2.6V21H21v-7.5z" /></svg>
           </a>
-          <a
-            href="tel:+923079431923"
-            className="flex items-center rounded-full border border-white/20 px-4 text-sm text-white"
-          >
-            +923079431923
-          </a>
+          {siteConfig.phones.map((p) => (
+            <a
+              key={p.href}
+              href={p.href}
+              className="flex items-center rounded-full border border-white/20 px-4 text-sm text-white"
+            >
+              {p.label}
+            </a>
+          ))}
         </div>
       </div>
     </div>

@@ -97,11 +97,13 @@ export default function Footer() {
               Contact
             </h4>
             <ul className="space-y-3 text-sm text-white/60">
-              <li>
-                <a href={`tel:${config.phone.replace(/\s/g, "")}`} className="hover:text-white">
-                  {config.phone}
-                </a>
-              </li>
+              {config.phones.map((p) => (
+                <li key={p.href}>
+                  <a href={p.href} className="hover:text-white">
+                    {p.label}
+                  </a>
+                </li>
+              ))}
               <li>
                 <a href={`mailto:${config.email}`} className="hover:text-white">
                   {config.email}

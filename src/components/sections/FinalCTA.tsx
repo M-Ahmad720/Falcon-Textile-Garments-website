@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/ui/Button";
+import { siteConfig } from "@/data/site";
 
 export default function FinalCTA() {
   return (
@@ -29,8 +30,8 @@ export default function FinalCTA() {
           Ready to start your project?
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg text-white/60">
-          Call +923079431923 or write to falcontextilegarments@gmail.com for a
-          quote on industrial workwear.
+          Call {siteConfig.phone} or {siteConfig.phoneUS} or write to{" "}
+          {siteConfig.inquiryEmail} for a quote on industrial workwear.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-4">
           <Button href="/contact" variant="primary" size="lg">

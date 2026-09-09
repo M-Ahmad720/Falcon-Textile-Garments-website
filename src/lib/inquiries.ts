@@ -4,7 +4,7 @@ import { sendInquiryEmail } from "@/lib/email";
 
 export type Inquiry = {
   id: string;
-  type: "quote" | "newsletter" | "callback";
+  type: "quote" | "newsletter";
   createdAt: string;
   name?: string;
   company?: string;

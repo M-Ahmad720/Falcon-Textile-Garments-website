@@ -7,13 +7,32 @@ import {
   getProductsByCategory,
   searchProducts,
 } from "@/data/products";
-
-export const metadata: Metadata = {
-  title: "All Products",
-};
+import { createSeoMetadata } from "@/lib/seo";
 
 interface PageProps {
   searchParams: Promise<{ category?: string; q?: string }>;
+}
+
+export async function generateMetadata({
+  searchParams,
+}: PageProps): Promise<Metadata> {
+  const { category, q } = await searchParams;
+
+  return createSeoMetadata({
+    title: "Industrial Workwear Products",
+    description:
+      "Browse Falcon industrial workwear including coveralls, safety jackets, work trousers, FR clothing, hi-vis garments, chemical suits and custom uniforms.",
+    path: "/products",
+    keywords: [
+      "industrial workwear products",
+      "safety clothing catalog",
+      "workwear coveralls",
+      "safety jackets and trousers",
+      "custom industrial uniforms",
+    ],
+    image: "/images/page-banners/2.jpeg",
+    noIndex: Boolean(category || q),
+  });
 }
 
 export default async function ProductsPage({ searchParams }: PageProps) {

@@ -179,12 +179,17 @@ export default function AnimatedHeader() {
                     : "invisible -translate-y-1 opacity-0 pointer-events-none"
                 )}
               >
-                <a
-                  href="tel:+923079431923"
-                  className="block whitespace-nowrap rounded-sm border border-white/10 bg-navy/95 px-4 py-3 text-sm font-semibold text-white shadow-lg backdrop-blur-md transition-colors hover:text-orange"
-                >
-                  +923079431923
-                </a>
+                <div className="overflow-hidden rounded-sm border border-white/10 bg-navy/95 shadow-lg backdrop-blur-md">
+                  {siteConfig.phones.map((p) => (
+                    <a
+                      key={p.href}
+                      href={p.href}
+                      className="block whitespace-nowrap px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/5 hover:text-orange"
+                    >
+                      {p.label}
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

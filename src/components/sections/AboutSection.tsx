@@ -19,16 +19,34 @@ export default function AboutSection() {
 
   useEffect(() => {
     if (!sectionRef.current || reducedMotion) return;
+    const tilts = sectionRef.current.querySelectorAll(".fg-tilt");
     const ctx = gsap.context(() => {
-      gsap.from(".fg-tilt", {
-        y: 40,
-        duration: 0.9,
-        stagger: 0.12,
-        ease: "power3.out",
-        scrollTrigger: { trigger: sectionRef.current, start: "top 75%" },
-      });
+      gsap.fromTo(
+        tilts,
+        { y: 40, autoAlpha: 0 },
+        {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.9,
+          stagger: 0.12,
+          ease: "power3.out",
+          immediateRender: false,
+          clearProps: "transform",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+            once: true,
+          },
+        }
+      );
     }, sectionRef);
-    return () => ctx.revert();
+    const refreshId = requestAnimationFrame(() => ScrollTrigger.refresh());
+    return () => {
+      cancelAnimationFrame(refreshId);
+      ctx.revert();
+      gsap.set(tilts, { clearProps: "all" });
+    };
   }, [reducedMotion]);
 
   return (
@@ -38,6 +56,8 @@ export default function AboutSection() {
           src={wpMedia.consultingBg}
           alt=""
           fill
+          loading="lazy"
+          quality={50}
           className="object-cover opacity-40"
           sizes="38vw"
         />
@@ -48,15 +68,15 @@ export default function AboutSection() {
         <div className="relative mx-auto h-[420px] w-full max-w-md sm:h-[520px]">
           <div className="fg-tilt absolute left-2 top-10 h-48 w-40 -rotate-[14deg] bg-orange sm:h-56 sm:w-44" />
           <div className="fg-tilt float-y absolute left-6 top-14 h-48 w-40 -rotate-[14deg] overflow-hidden border-[3px] border-orange sm:h-56 sm:w-44">
-            <Image src={wpMedia.aboutMain} alt="" fill className="object-cover" sizes="180px" />
+            <Image src={wpMedia.aboutMain} alt="" fill loading="lazy" quality={70} className="object-cover" sizes="180px" />
           </div>
           <div className="fg-tilt absolute bottom-8 left-24 h-52 w-44 rotate-[8deg] bg-orange sm:left-32 sm:h-64 sm:w-52" />
           <div className="fg-tilt float-y absolute bottom-4 left-28 h-52 w-44 rotate-[8deg] overflow-hidden border-[3px] border-orange sm:left-36 sm:h-64 sm:w-52" style={{ animationDelay: "0.6s" }}>
-            <Image src={wpMedia.homeAbout} alt="" fill className="object-cover" sizes="220px" />
+            <Image src={wpMedia.homeAbout} alt="" fill loading="lazy" quality={70} className="object-cover" sizes="220px" />
           </div>
           <div className="fg-tilt absolute right-2 top-0 h-40 w-32 rotate-[18deg] bg-orange sm:h-48 sm:w-36" />
           <div className="fg-tilt float-y absolute right-0 top-4 h-40 w-32 rotate-[18deg] overflow-hidden border-[3px] border-orange sm:h-48 sm:w-36" style={{ animationDelay: "1.1s" }}>
-            <Image src={wpMedia.aboutFloat} alt="" fill className="object-cover" sizes="150px" />
+            <Image src={wpMedia.aboutFloat} alt="" fill loading="lazy" quality={70} className="object-cover" sizes="150px" />
           </div>
         </div>
 

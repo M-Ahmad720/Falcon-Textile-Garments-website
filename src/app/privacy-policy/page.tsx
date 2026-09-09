@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
+import { createSeoMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createSeoMetadata({
   title: "Privacy Policy",
-};
+  description:
+    "Read the Falcon Textile & Garments privacy policy and learn how website and inquiry information is handled.",
+  path: "/privacy-policy",
+  noIndex: true,
+});
 
 export default function PrivacyPolicyPage() {
   return (

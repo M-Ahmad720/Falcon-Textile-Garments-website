@@ -2,18 +2,28 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Button from "@/components/ui/Button";
+import PageBannerBg from "@/components/ui/PageBannerBg";
 import { teamMembers, siteConfig } from "@/data/site";
+import { createSeoMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Founder & CEO",
-  description: `Meet ${siteConfig.founders.founder} and ${siteConfig.founders.coFounder}, the visionaries behind Falcon Textile Garments.`,
-};
+export const metadata: Metadata = createSeoMetadata({
+  title: `Founder & CEO – ${siteConfig.founders.founder}`,
+  description: `Meet ${siteConfig.founders.founder}, Founder and CEO of Falcon Textile & Garments, and discover his vision for dependable industrial safety workwear.`,
+  path: "/founder",
+  keywords: [
+    `${siteConfig.founders.founder} Falcon Textile`,
+    "Falcon Textile founder",
+    "industrial workwear leadership",
+  ],
+  image: "/images/page-banners/2.jpeg",
+});
 
 export default function FounderPage() {
   return (
     <>
-      <section className="bg-navy py-32 pt-40 grain">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="relative flex min-h-[50vh] w-full items-end overflow-hidden bg-navy pb-16 pt-36 grain">
+        <PageBannerBg src="/images/page-banners/2.jpeg" />
+        <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-8">
           <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-orange">
             Leadership
           </p>

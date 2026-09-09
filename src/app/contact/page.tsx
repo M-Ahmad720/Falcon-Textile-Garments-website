@@ -1,25 +1,30 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import QuoteForm from "@/components/forms/QuoteForm";
 import FAQSection from "@/components/sections/FAQSection";
+import PageBannerBg from "@/components/ui/PageBannerBg";
 import { siteConfig } from "@/data/site";
-import { wpMedia } from "@/data/media";
+import { createSeoMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact Us",
+export const metadata: Metadata = createSeoMetadata({
+  title: "Contact Industrial Workwear Manufacturer",
   description:
-    "Get in touch with Falcon Textile & Garments. Request a quote for industrial workwear solutions.",
-};
+    "Contact Falcon Textile & Garments for custom industrial workwear, safety uniforms and bulk manufacturing quotes for your workforce.",
+  path: "/contact",
+  keywords: [
+    "industrial workwear quote",
+    "custom safety uniform supplier",
+    "contact workwear manufacturer",
+    "bulk workwear order",
+  ],
+  image: "/images/page-banners/1.jpeg",
+});
 
 export default function ContactPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-navy py-32 pt-40 grain">
-        <div className="absolute inset-0">
-          <Image src={wpMedia.contactBg} alt="" fill className="object-cover opacity-25" priority />
-          <div className="absolute inset-0 bg-navy/80" />
-        </div>
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="relative flex min-h-[50vh] w-full items-end overflow-hidden bg-navy pb-16 pt-36 grain">
+        <PageBannerBg src="/images/page-banners/1.jpeg" />
+        <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-8">
           <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-orange">
             Contact
           </p>
@@ -40,12 +45,15 @@ export default function ContactPage() {
                 <h3 className="text-xs font-bold uppercase tracking-wider text-orange">
                   Phone
                 </h3>
-                <a
-                  href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-                  className="mt-1 block text-lg text-navy hover:text-orange"
-                >
-                  {siteConfig.phone}
-                </a>
+                {siteConfig.phones.map((p) => (
+                  <a
+                    key={p.href}
+                    href={p.href}
+                    className="mt-1 block text-lg text-navy hover:text-orange"
+                  >
+                    {p.label}
+                  </a>
+                ))}
               </div>
               <div>
                 <h3 className="text-xs font-bold uppercase tracking-wider text-orange">

@@ -49,11 +49,15 @@ export default function Hero3D() {
     return () => window.clearInterval(id);
   }, [reducedMotion, index, goTo]);
 
+  const nextIndex = (index + 1) % slides.length;
+  const hasTransitioned = prev !== index;
+
   return (
     <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden bg-navy">
       {slides.map((slide, i) => {
         const isActive = i === index;
-        const isLeaving = i === prev && prev !== index;
+        const isLeaving = i === prev && hasTransitioned;
+        const shouldLoad = isActive || isLeaving || i === nextIndex;
 
         return (
           <div
@@ -61,23 +65,35 @@ export default function Hero3D() {
             className={cn(
               "absolute inset-0",
               isActive ? "z-20" : isLeaving ? "z-10" : "z-0",
-              isActive && !reducedMotion && direction === "next" && "hero-wipe-in",
-              isActive && !reducedMotion && direction === "prev" && "hero-wipe-in-reverse",
+              hasTransitioned &&
+                isActive &&
+                !reducedMotion &&
+                direction === "next" &&
+                "hero-wipe-in",
+              hasTransitioned &&
+                isActive &&
+                !reducedMotion &&
+                direction === "prev" &&
+                "hero-wipe-in-reverse",
               isLeaving && !reducedMotion && "hero-wipe-out"
             )}
             aria-hidden={!isActive}
           >
-            <Image
-              src={slide.src}
-              alt={slide.alt}
-              fill
-              priority={i === 0}
-              sizes="100vw"
-              className={cn(
-                "object-cover object-center",
-                isActive && !reducedMotion && "ken-burns"
-              )}
-            />
+            {shouldLoad ? (
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                fill
+                priority={i === 0}
+                loading={i === 0 ? "eager" : "lazy"}
+                quality={75}
+                sizes="100vw"
+                className={cn(
+                  "object-cover object-center",
+                  isActive && !reducedMotion && "ken-burns"
+                )}
+              />
+            ) : null}
             <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/25" />
           </div>
         );

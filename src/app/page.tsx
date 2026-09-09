@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Hero3D from "@/components/sections/Hero3D";
 import HomeTicker from "@/components/sections/HomeTicker";
 import AboutSection from "@/components/sections/AboutSection";
@@ -9,6 +10,20 @@ import AboutTestimonials from "@/components/sections/AboutTestimonials";
 import FAQSection from "@/components/sections/FAQSection";
 import ClientPride from "@/components/sections/ClientPride";
 import FinalCTA from "@/components/sections/FinalCTA";
+import { createSeoMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createSeoMetadata({
+  title: "Industrial Workwear Manufacturer",
+  description:
+    "Falcon Textile & Garments manufactures custom industrial workwear, safety uniforms, FR clothing, hi-vis garments, coveralls, jackets and trousers.",
+  path: "/",
+  keywords: [
+    "industrial workwear manufacturer Pakistan",
+    "custom safety uniforms",
+    "workwear wholesale supplier",
+    "PPE clothing manufacturer",
+  ],
+});
 
 export default function HomePage() {
   return (

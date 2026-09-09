@@ -1,13 +1,11 @@
 "use client";
 
-type InquiryType = "quote" | "newsletter" | "callback";
+type InquiryType = "quote" | "newsletter";
 
 const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
 function subjectFor(type: InquiryType, data: Record<string, string>) {
   if (type === "newsletter") return `Newsletter signup: ${data.email}`;
-  if (type === "callback")
-    return `Call-back request from ${data.name || data.phone || data.email}`;
   return `Website inquiry from ${data.name || data.email}`;
 }
 

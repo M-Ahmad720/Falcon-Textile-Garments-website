@@ -1,18 +1,29 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import PageBannerBg from "@/components/ui/PageBannerBg";
 import { teamMembers } from "@/data/site";
+import { createSeoMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Team",
-  description: "Meet the leadership team at Falcon Textile & Garments.",
-};
+export const metadata: Metadata = createSeoMetadata({
+  title: "Industrial Workwear Leadership Team",
+  description:
+    "Meet the Falcon Textile & Garments leadership team driving quality, innovation and dependable industrial safety workwear manufacturing.",
+  path: "/team",
+  keywords: [
+    "Falcon Textile team",
+    "workwear manufacturing leadership",
+    "industrial garment experts",
+  ],
+  image: "/images/page-banners/5.jpeg",
+});
 
 export default function TeamPage() {
   return (
     <>
-      <section className="bg-navy py-32 pt-40 grain">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="relative flex min-h-[50vh] w-full items-end overflow-hidden bg-navy pb-16 pt-36 grain">
+        <PageBannerBg src="/images/page-banners/5.jpeg" />
+        <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-8">
           <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-orange">
             Our People
           </p>

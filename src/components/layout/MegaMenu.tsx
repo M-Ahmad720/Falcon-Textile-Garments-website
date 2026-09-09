@@ -80,19 +80,19 @@ export default function MegaMenu({
           </div>
         </div>
 
-        {visual?.images[0] && (
+        {visual?.images[0] && isOpen ? (
           <div className="pointer-events-none absolute -bottom-14 -right-6 z-20 hidden h-[340px] w-[230px] sm:block lg:-right-10 lg:h-[400px] lg:w-[280px] [perspective:900px]">
             <div className="menu-visual-3d relative h-full w-full">
               <Image
                 src={visual.images[0]}
                 alt=""
                 fill
-                className="object-contain object-bottom drop-shadow-[0_20px_28px_rgba(0,0,0,0.22)]"
+                className="object-contain object-bottom drop-shadow-[0_18px_24px_rgba(0,0,0,0.18)]"
                 sizes="280px"
               />
             </div>
           </div>
-        )}
+        ) : null}
       </div>
     </div>
   );

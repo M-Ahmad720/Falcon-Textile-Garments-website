@@ -122,15 +122,15 @@ body {
 }
 
 .hero-wipe-in {
-  animation: hero-wipe-in 0.9s cubic-bezier(0.77, 0, 0.18, 1) both;
+  animation: hero-wipe-in 0.9s cubic-bezier(0.77, 0, 0.18, 1) forwards;
 }
 
 .hero-wipe-in-reverse {
-  animation: hero-wipe-in-reverse 0.9s cubic-bezier(0.77, 0, 0.18, 1) both;
+  animation: hero-wipe-in-reverse 0.9s cubic-bezier(0.77, 0, 0.18, 1) forwards;
 }
 
 .hero-wipe-out {
-  animation: hero-wipe-out 0.9s cubic-bezier(0.77, 0, 0.18, 1) both;
+  animation: hero-wipe-out 0.9s cubic-bezier(0.77, 0, 0.18, 1) forwards;
 }
 
 @keyframes ken-burns {

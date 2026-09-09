@@ -5,7 +5,6 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { faqItems } from "@/data/faq";
 import { siteConfig } from "@/data/site";
-import CallbackForm from "@/components/forms/CallbackForm";
 import { wpMedia } from "@/data/media";
 
 export default function FAQSection() {
@@ -18,6 +17,8 @@ export default function FAQSection() {
           src={wpMedia.faqBg}
           alt=""
           fill
+          loading="lazy"
+          quality={40}
           className="object-cover"
           sizes="100vw"
         />
@@ -27,12 +28,17 @@ export default function FAQSection() {
           <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-orange">
             Start Your Project
           </p>
-          <a
-            href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-            className="mt-4 block font-display text-3xl font-bold hover:text-orange"
-          >
-            {siteConfig.phone}
-          </a>
+          <div className="mt-4 space-y-1">
+            {siteConfig.phones.map((p) => (
+              <a
+                key={p.href}
+                href={p.href}
+                className="block font-display text-3xl font-bold hover:text-orange"
+              >
+                {p.label}
+              </a>
+            ))}
+          </div>
           <p className="mt-6 text-sm text-white/70">
             Send mail on:{" "}
             <a
@@ -46,7 +52,6 @@ export default function FAQSection() {
             <li>{siteConfig.hours.weekdays}</li>
             <li>{siteConfig.hours.closed}</li>
           </ul>
-          <CallbackForm />
         </div>
 
         <div>

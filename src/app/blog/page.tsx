@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageBannerBg from "@/components/ui/PageBannerBg";
+import { createSeoMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Blog",
-  description: "Latest news and updates from Falcon Textile & Garments.",
-};
+export const metadata: Metadata = createSeoMetadata({
+  title: "Industrial Workwear & Safety Clothing Blog",
+  description:
+    "Read expert insights on industrial workwear, workplace safety clothing, custom uniforms, hi-vis garments and protective apparel from Falcon.",
+  path: "/blog",
+  keywords: [
+    "industrial workwear blog",
+    "safety clothing insights",
+    "protective workwear guide",
+    "custom uniform advice",
+  ],
+  image: "/images/page-banners/4.jpeg",
+});
 
 const posts = [
   {
@@ -22,8 +33,9 @@ const posts = [
 export default function BlogPage() {
   return (
     <>
-      <section className="bg-navy py-32 pt-40 grain">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="relative flex min-h-[50vh] w-full items-end overflow-hidden bg-navy pb-16 pt-36 grain">
+        <PageBannerBg src="/images/page-banners/4.jpeg" />
+        <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-8">
           <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-orange">
             News & Updates
           </p>

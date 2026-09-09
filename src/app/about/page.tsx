@@ -5,15 +5,25 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import CountUp from "@/components/ui/CountUp";
 import ZoomOnView from "@/components/ui/ZoomOnView";
 import Button from "@/components/ui/Button";
+import PageBannerBg from "@/components/ui/PageBannerBg";
 import AboutTestimonials from "@/components/sections/AboutTestimonials";
 import ClientPride from "@/components/sections/ClientPride";
 import { wpMedia } from "@/data/media";
+import { createSeoMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About Company",
+export const metadata: Metadata = createSeoMetadata({
+  title: "About Our Industrial Workwear Company",
   description:
-    "Founded by Suleman Alvi and co-founded by Eng. Awais Ali, Falcon Textile Garments is dedicated to redefining industrial safety wear through cutting-edge innovation, uncompromising quality, and a commitment to worker protection.",
-};
+    "Learn about Falcon Textile & Garments, an industrial workwear manufacturer focused on durable safety clothing, custom uniforms and worker protection.",
+  path: "/about",
+  keywords: [
+    "about Falcon Textile",
+    "industrial workwear company Pakistan",
+    "safety clothing manufacturer Lahore",
+    "workwear manufacturing company",
+  ],
+  image: "/images/page-banners/5.jpeg",
+});
 
 const reasons = [
   {
@@ -53,17 +63,8 @@ const awards = [
 export default function AboutPage() {
   return (
     <>
-      <section className="relative flex min-h-[50vh] items-end bg-navy pb-16 pt-36 grain">
-        <div className="absolute inset-0">
-          <Image
-            src={wpMedia.aboutMain}
-            alt="About Falcon Textile & Garments"
-            fill
-            className="object-cover opacity-30"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/85 to-navy/60" />
-        </div>
+      <section className="relative flex min-h-[50vh] w-full items-end overflow-hidden bg-navy pb-16 pt-36 grain">
+        <PageBannerBg src="/images/page-banners/5.jpeg" />
         <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-8">
           <nav className="mb-4 text-sm text-white/50">
             <Link href="/" className="hover:text-orange">

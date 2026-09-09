@@ -27,26 +27,41 @@ export default function ScrollReveal({
   const reducedMotion = useReducedMotion();
 
   useEffect(() => {
-    if (!ref.current || reducedMotion) return;
+    const el = ref.current;
+    if (!el || reducedMotion) return;
+
+    const from: gsap.TweenVars = { autoAlpha: 0 };
+    if (direction === "up") from.y = 60;
+    if (direction === "down") from.y = -60;
+    if (direction === "left") from.x = 60;
+    if (direction === "right") from.x = -60;
 
     const ctx = gsap.context(() => {
-      const from: gsap.TweenVars = { opacity: 0, duration, delay, ease: "power3.out" };
-      if (direction === "up") from.y = 60;
-      if (direction === "down") from.y = -60;
-      if (direction === "left") from.x = 60;
-      if (direction === "right") from.x = -60;
-
-      gsap.from(ref.current, {
-        ...from,
+      gsap.fromTo(el, from, {
+        autoAlpha: 1,
+        x: 0,
+        y: 0,
+        duration,
+        delay,
+        ease: "power3.out",
+        immediateRender: false,
+        clearProps: "transform",
         scrollTrigger: {
-          trigger: ref.current,
-          start: "top 85%",
+          trigger: el,
+          start: "top 90%",
           toggleActions: "play none none none",
+          once: true,
         },
       });
     }, ref);
 
-    return () => ctx.revert();
+    const refreshId = requestAnimationFrame(() => ScrollTrigger.refresh());
+
+    return () => {
+      cancelAnimationFrame(refreshId);
+      ctx.revert();
+      gsap.set(el, { clearProps: "all" });
+    };
   }, [direction, delay, duration, reducedMotion]);
 
   return (

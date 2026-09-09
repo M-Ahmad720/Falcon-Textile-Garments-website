@@ -46,16 +46,22 @@ export default function TextReveal({
           stagger: splitBy === "chars" ? 0.02 : 0.06,
           delay,
           ease: "power3.out",
+          immediateRender: false,
           scrollTrigger: {
             trigger: ref.current,
-            start: "top 85%",
+            start: "top 90%",
             toggleActions: "play none none none",
+            once: true,
           },
         }
       );
     }, ref);
 
-    return () => ctx.revert();
+    const refreshId = requestAnimationFrame(() => ScrollTrigger.refresh());
+    return () => {
+      cancelAnimationFrame(refreshId);
+      ctx.revert();
+    };
   }, [children, delay, splitBy, reducedMotion]);
 
   return (

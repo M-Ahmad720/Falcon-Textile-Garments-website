@@ -1,18 +1,30 @@
 import type { Metadata } from "next";
 import FabricShowcase from "@/components/sections/FabricShowcase";
 import Button from "@/components/ui/Button";
+import PageBannerBg from "@/components/ui/PageBannerBg";
+import { createSeoMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Falcon Fabric Book",
+export const metadata: Metadata = createSeoMetadata({
+  title: "Industrial Workwear Fabric Guide",
   description:
-    "Explore Falcon Textile's premium fabric guide — cotton twill, flame-retardant, hi-visibility, and specialized industrial textiles.",
-};
+    "Explore workwear fabrics including cotton twill, poly-cotton, flame-resistant, hi-vis, winter and specialized industrial textiles from Falcon.",
+  path: "/fabric-guide",
+  keywords: [
+    "industrial workwear fabrics",
+    "flame resistant fabric",
+    "hi visibility fabric",
+    "cotton twill workwear fabric",
+    "poly cotton uniform fabric",
+  ],
+  image: "/images/page-banners/3.jpeg",
+});
 
 export default function FabricGuidePage() {
   return (
     <>
-      <section className="bg-navy py-32 pt-40 grain">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="relative flex min-h-[50vh] w-full items-end overflow-hidden bg-navy pb-16 pt-36 grain">
+        <PageBannerBg src="/images/page-banners/3.jpeg" />
+        <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-8">
           <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-orange">
             Resources
           </p>

@@ -10,9 +10,7 @@ export async function sendInquiryEmail(inquiry: Inquiry): Promise<void> {
   const subject =
     inquiry.type === "newsletter"
       ? `Newsletter signup: ${inquiry.email}`
-      : inquiry.type === "callback"
-        ? `Call-back request from ${inquiry.name || inquiry.phone || inquiry.email}`
-        : `Website inquiry from ${inquiry.name || inquiry.email}`;
+      : `Website inquiry from ${inquiry.name || inquiry.email}`;
 
   const text = Object.entries(inquiry)
     .filter(([, v]) => v)

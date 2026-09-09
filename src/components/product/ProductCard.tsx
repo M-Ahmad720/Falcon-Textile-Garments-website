@@ -31,8 +31,10 @@ export default function ProductCard({ product, index, className }: ProductCardPr
             src={product.image}
             alt={product.name}
             fill
+            loading="lazy"
+            quality={70}
             className="object-contain p-4 transition-all duration-700 group-hover:scale-110"
-            sizes="(max-width: 768px) 100vw, 33vw"
+            sizes="(max-width: 768px) 100vw, 25vw"
           />
         ) : null}
         <div className="absolute inset-0 flex items-end justify-center bg-black/0 p-6 transition-colors duration-300 group-hover:bg-black/45">

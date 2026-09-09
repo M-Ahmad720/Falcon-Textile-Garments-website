@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
+import { createSeoMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createSeoMetadata({
   title: "Terms & Conditions",
-};
+  description:
+    "Review the terms and conditions for using the Falcon Textile & Garments website and requesting custom workwear quotes.",
+  path: "/terms-and-conditions",
+  noIndex: true,
+});
 
 export default function TermsPage() {
   return (

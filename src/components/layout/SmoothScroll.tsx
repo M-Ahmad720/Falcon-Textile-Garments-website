@@ -36,11 +36,9 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       window.history.scrollRestoration = "manual";
     }
 
-    ScrollTrigger.getAll().forEach((st) => st.kill());
-
     if (reducedMotion) {
       jumpToPageStart();
-      ScrollTrigger.refresh();
+      requestAnimationFrame(() => ScrollTrigger.refresh());
       return;
     }
 
@@ -61,15 +59,15 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     jumpToPageStart(lenis);
 
-    const refreshId = requestAnimationFrame(() => {
+    // Wait for layout + section ScrollTriggers to register, then refresh.
+    const refreshId = window.setTimeout(() => {
       jumpToPageStart(lenis);
       ScrollTrigger.refresh();
-    });
+    }, 100);
 
     return () => {
-      cancelAnimationFrame(refreshId);
+      window.clearTimeout(refreshId);
       gsap.ticker.remove(onTick);
-      ScrollTrigger.getAll().forEach((st) => st.kill());
       lenis.destroy();
     };
   }, [reducedMotion, pathname]);

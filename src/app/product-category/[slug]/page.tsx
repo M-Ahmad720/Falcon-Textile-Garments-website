@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import ProductCard from "@/components/product/ProductCard";
 import Button from "@/components/ui/Button";
+import PageBannerBg, { bannerForCategory } from "@/components/ui/PageBannerBg";
+import { categorySeoDescription, createSeoMetadata } from "@/lib/seo";
 import {
   allCategorySlugs,
   catalogCategories,
@@ -17,15 +18,30 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return allCategorySlugs.map((slug) => ({ slug }));
+  return catalogCategories.map((category) => ({ slug: category.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const meta = getCategoryMeta(slug);
-  return {
-    title: meta.name,
-  };
+  const record = getCategoryRecord(slug);
+  const canonicalSlug = record?.slug ?? slug;
+  const seoTitle =
+    meta.name.length <= 32 ? `${meta.name} Manufacturer` : meta.name;
+
+  return createSeoMetadata({
+    title: seoTitle,
+    description: categorySeoDescription(meta.name),
+    path: `/product-category/${canonicalSlug}`,
+    keywords: [
+      `${meta.name} manufacturer`,
+      `${meta.name} supplier`,
+      `custom ${meta.name.toLowerCase()}`,
+      `wholesale ${meta.name.toLowerCase()}`,
+      "industrial safety clothing",
+    ],
+    image: meta.image || bannerForCategory(slug, meta.parentSlug),
+  });
 }
 
 export default async function CategoryPage({ params }: PageProps) {
@@ -44,19 +60,8 @@ export default async function CategoryPage({ params }: PageProps) {
 
   return (
     <>
-      <section className="relative flex min-h-[50vh] items-end bg-navy pb-16 pt-32 grain">
-        {meta.image ? (
-          <div className="absolute inset-0">
-            <Image
-              src={meta.image}
-              alt={meta.name}
-              fill
-              className="object-cover opacity-25"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/90 to-navy/70" />
-          </div>
-        ) : null}
+      <section className="relative flex min-h-[50vh] w-full items-end overflow-hidden bg-navy pb-16 pt-32 grain">
+        <PageBannerBg src={bannerForCategory(slug, meta.parentSlug)} />
         <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-8">
           <nav className="mb-6 text-sm text-white/50">
             <Link href="/" className="hover:text-orange">

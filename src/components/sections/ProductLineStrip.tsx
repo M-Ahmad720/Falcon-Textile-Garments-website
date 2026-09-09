@@ -24,17 +24,34 @@ export default function ProductLineStrip() {
 
   useEffect(() => {
     if (!ref.current || reducedMotion) return;
+    const tiles = ref.current.querySelectorAll(".line-tile");
     const ctx = gsap.context(() => {
-      gsap.from(".line-tile", {
-        y: 80,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ref.current, start: "top 80%" },
-      });
+      gsap.fromTo(
+        tiles,
+        { y: 80, autoAlpha: 0 },
+        {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power3.out",
+          immediateRender: false,
+          clearProps: "transform",
+          scrollTrigger: {
+            trigger: ref.current,
+            start: "top 85%",
+            toggleActions: "play none none none",
+            once: true,
+          },
+        }
+      );
     }, ref);
-    return () => ctx.revert();
+    const refreshId = requestAnimationFrame(() => ScrollTrigger.refresh());
+    return () => {
+      cancelAnimationFrame(refreshId);
+      ctx.revert();
+      gsap.set(tiles, { clearProps: "all" });
+    };
   }, [reducedMotion]);
 
   return (
@@ -59,6 +76,8 @@ export default function ProductLineStrip() {
                 src={item.image}
                 alt={item.title}
                 fill
+                loading="lazy"
+                quality={70}
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
                 sizes="20vw"
               />

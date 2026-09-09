@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import JsonLd from "@/components/seo/JsonLd";
 import { siteConfig } from "@/data/site";
+import { coreKeywords } from "@/lib/seo";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -21,17 +22,56 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name} – ${siteConfig.tagline}`,
-    template: `%s – ${siteConfig.name}`,
+    default: "Industrial Workwear Manufacturer & Supplier | Falcon Textile",
+    template: `%s | Falcon Textile & Garments`,
   },
-  description: siteConfig.description,
+  description:
+    "Falcon Textile & Garments manufactures custom industrial workwear, safety uniforms, FR clothing, hi-vis garments, coveralls, jackets and trousers.",
   metadataBase: new URL(siteConfig.url),
+  applicationName: siteConfig.name,
+  keywords: coreKeywords,
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  category: "Industrial Workwear Manufacturing",
+  referrer: "origin-when-cross-origin",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: siteConfig.name,
-    description: siteConfig.description,
+    title: "Industrial Workwear Manufacturer & Supplier | Falcon Textile",
+    description:
+      "Custom industrial workwear, safety uniforms, FR clothing, hi-vis garments, coveralls, jackets and trousers for demanding industries.",
     url: siteConfig.url,
     siteName: siteConfig.name,
     type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/images/page-banners/5.jpeg",
+        alt: "Falcon Textile & Garments industrial safety workwear",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Industrial Workwear Manufacturer & Supplier | Falcon Textile",
+    description:
+      "Custom safety uniforms, FR clothing, hi-vis workwear, coveralls, jackets and trousers for global industries.",
+    images: ["/images/page-banners/5.jpeg"],
   },
 };
 

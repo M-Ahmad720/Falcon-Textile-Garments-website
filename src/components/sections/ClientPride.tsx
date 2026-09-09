@@ -37,20 +37,34 @@ export default function ClientPride({
 
   useEffect(() => {
     if (!ref.current || reducedMotion) return;
+    const logosEl = ref.current.querySelectorAll(".client-logo");
     const ctx = gsap.context(() => {
-      gsap.from(".client-logo", {
-        y: 24,
-        opacity: 0,
-        duration: 0.55,
-        stagger: 0.07,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ref.current,
-          start: "top 80%",
-        },
-      });
+      gsap.fromTo(
+        logosEl,
+        { y: 24, autoAlpha: 0 },
+        {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.55,
+          stagger: 0.07,
+          ease: "power2.out",
+          immediateRender: false,
+          clearProps: "transform",
+          scrollTrigger: {
+            trigger: ref.current,
+            start: "top 85%",
+            toggleActions: "play none none none",
+            once: true,
+          },
+        }
+      );
     }, ref);
-    return () => ctx.revert();
+    const refreshId = requestAnimationFrame(() => ScrollTrigger.refresh());
+    return () => {
+      cancelAnimationFrame(refreshId);
+      ctx.revert();
+      gsap.set(logosEl, { clearProps: "all" });
+    };
   }, [reducedMotion]);
 
   return (
@@ -83,6 +97,8 @@ export default function ClientPride({
                   alt="Client logo"
                   width={140}
                   height={48}
+                  loading="lazy"
+                  quality={60}
                   className="max-h-10 w-auto object-contain opacity-70 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0"
                 />
               </div>

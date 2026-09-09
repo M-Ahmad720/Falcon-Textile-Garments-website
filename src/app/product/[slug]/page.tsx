@@ -5,12 +5,15 @@ import Button from "@/components/ui/Button";
 import SafeHtml from "@/components/ui/SafeHtml";
 import ProductCard from "@/components/product/ProductCard";
 import ProductGallery from "@/components/product/ProductGallery";
+import ProductJsonLd from "@/components/seo/ProductJsonLd";
 import { stripHtml } from "@/lib/utils";
+import { conciseDescription, createSeoMetadata } from "@/lib/seo";
 import {
   products,
   getProductBySlug,
   getRelatedProducts,
   getCategoryMeta,
+  getCategoryRecord,
 } from "@/data/products";
 
 interface PageProps {
@@ -24,11 +27,26 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const product = getProductBySlug(slug);
-  if (!product) return { title: "Product Not Found" };
-  return {
+  if (!product) return { title: "Product Not Found", robots: { index: false } };
+
+  const sourceDescription =
+    stripHtml(product.shortDescription) ||
+    stripHtml(product.description) ||
+    `${product.name} industrial safety workwear by Falcon Textile & Garments.`;
+
+  return createSeoMetadata({
     title: product.name,
-    description: stripHtml(product.shortDescription),
-  };
+    description: conciseDescription(sourceDescription),
+    path: `/product/${product.slug}`,
+    keywords: [
+      product.name,
+      ...product.categories,
+      ...product.tags.slice(0, 8),
+      "custom industrial workwear",
+      "bulk safety clothing",
+    ],
+    image: product.image || "/images/page-banners/2.jpeg",
+  });
 }
 
 export default async function ProductPage({ params }: PageProps) {
@@ -40,6 +58,9 @@ export default async function ProductPage({ params }: PageProps) {
   const related = getRelatedProducts(product, 3);
   const leafSlug = product.categorySlugs[product.categorySlugs.length - 1];
   const leafMeta = leafSlug ? getCategoryMeta(leafSlug) : null;
+  const leafCanonicalSlug = leafSlug
+    ? getCategoryRecord(leafSlug)?.slug ?? leafSlug
+    : undefined;
   const specs = [
     product.sku ? ["SKU", product.sku] : null,
     product.regularPrice ? ["Regular price", product.regularPrice] : null,
@@ -56,6 +77,11 @@ export default async function ProductPage({ params }: PageProps) {
 
   return (
     <>
+      <ProductJsonLd
+        product={product}
+        categoryName={leafMeta?.name}
+        categorySlug={leafCanonicalSlug}
+      />
       <section className="bg-light-gray py-32 pt-40">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <nav className="mb-8 text-sm text-secondary-text">
@@ -66,10 +92,10 @@ export default async function ProductPage({ params }: PageProps) {
             <Link href="/products" className="hover:text-orange">
               Products
             </Link>
-            {leafMeta && leafSlug ? (
+            {leafMeta && leafCanonicalSlug ? (
               <>
                 <span className="mx-2">/</span>
-                <Link href={`/product-category/${leafSlug}`} className="hover:text-orange">
+                <Link href={`/product-category/${leafCanonicalSlug}`} className="hover:text-orange">
                   {leafMeta.name}
                 </Link>
               </>

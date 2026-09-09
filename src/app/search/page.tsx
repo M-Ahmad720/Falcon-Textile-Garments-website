@@ -2,10 +2,14 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import ProductCard from "@/components/product/ProductCard";
 import { searchProducts } from "@/data/products";
+import { createSeoMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Search",
-};
+export const metadata: Metadata = createSeoMetadata({
+  title: "Search Products",
+  description: "Search the Falcon Textile & Garments industrial workwear catalog.",
+  path: "/search",
+  noIndex: true,
+});
 
 interface PageProps {
   searchParams: Promise<{ q?: string }>;
